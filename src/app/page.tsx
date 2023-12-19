@@ -3,24 +3,24 @@
 // pages/index.js
 // pages/index.js
 import React, { useState, useRef } from 'react';
-import DarkModeToggle from "./components/darkmode";
+// import DarkModeToggle from "./components/darkmode";
 import RedButton from "./components/buzzer";
 import SoundDropdown from "./components/sound-list";
 
 const MyPage = () => {
   const [selectedSound, setSelectedSound] = useState('Cat-Meow.mp3');
-  const audioRef = useRef(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const handleButtonClick = () => {
     // Play the selected sound
     playSound(selectedSound);
   };
 
-  const handleSoundChange = (selected) => {
+  const handleSoundChange = (selected: string) => {
     setSelectedSound(selected);
   };
 
-  const playSound = (sound) => {
+  const playSound = (sound: string) => {
     if (audioRef.current) {
       // Reset the audio to the beginning and play
       audioRef.current.currentTime = 0;
@@ -29,7 +29,7 @@ const MyPage = () => {
     }
   };
 
-  return (
+   return (
     <div>
       <div className="text-center text-8xl font-bold my-8">
         <h1>2023 Buzzer</h1>
@@ -39,7 +39,7 @@ const MyPage = () => {
       </div>
       <RedButton imageUrl="/red-button.png" onClick={handleButtonClick} />
       <div className="text-center text-2xl font-bold my-8">
-        <DarkModeToggle />
+        {/* <DarkModeToggle /> */}
       </div>
       <audio ref={audioRef}></audio>
     </div>

@@ -5,7 +5,7 @@
 
 import { SoundDropdownProps } from "./definitions";
 
-const SoundDropdown = ({ selectedSound, onChange }) => {
+const SoundDropdown: React.FC<SoundDropdownProps>= ({ selectedSound, onChange }) => {
   const soundOptions = [
     { value: 'Cat-Meow.mp3', label: 'Cat Meow' },
     { value: 'Cow-Moo-Sound-Effect.mp3', label: 'Cow Moo' },
